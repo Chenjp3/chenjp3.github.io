@@ -30,7 +30,7 @@ My research focuses on the progenitors, physical mechanisms, and observational p
 
 ## Live Website
 
-Visit the live website at: **https://chenjunping.github.io**
+Visit the live website at: **https://chenjp3.github.io**
 
 ## Local Preview
 
