@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JUN-PING CHEN - Astrophysics Ph.D. Candidate</title>
-<meta name="description" content="JUN-PING CHEN - Ph.D. Candidate in Astrophysics at Sun Yat-sen University. Research interests: Gamma-Ray Bursts, Tidal Disruption Events, Compact Binaries.">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>JUN-PING CHEN - Personal Homepage</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --primary: #1a1a2e;
@@ -17,18 +16,113 @@
     --text-dim: #a0a0a0;
     --card-bg: rgba(22, 33, 62, 0.7);
     --border: rgba(233, 69, 96, 0.2);
+    --nav-bg: rgba(26, 26, 46, 0.9);
+    --card-border: rgba(255,255,255,0.05);
+    --timeline-line: linear-gradient(to bottom, var(--highlight), var(--gold), transparent);
+    --award-top: linear-gradient(90deg, var(--highlight), var(--gold));
+    --avatar-shadow: rgba(233, 69, 96, 0.3);
+    --conf-bg: rgba(233, 69, 96, 0.1);
+    --skill-bg: rgba(15, 52, 96, 0.4);
+    --skill-bg-hover: var(--accent);
+    --volunteer-tag-bg: rgba(33, 150, 243, 0.1);
+    --tag-academic-bg: rgba(233, 69, 96, 0.15);
+    --tag-sports-bg: rgba(76, 175, 80, 0.15);
+    --tag-service-bg: rgba(33, 150, 243, 0.15);
+    --gradient-text: linear-gradient(135deg, #fff 0%, var(--highlight) 100%);
+    --pub-bg: rgba(15, 52, 96, 0.3);
+    --pub-border: var(--accent);
+    --location-bg: rgba(201, 162, 39, 0.1);
+    --conf-type-bg: rgba(201, 162, 39, 0.1);
+    --scroll-hint-color: var(--text-dim);
+    --toast-bg: #e94560;
+    --link-color: #6bb5ff;
+    --link-hover: #a8d4ff;
+  }
+
+  :root[data-theme="light"] {
+    --primary: #f5f7fa;
+    --secondary: #e8ecf1;
+    --accent: #3a6ea5;
+    --highlight: #d32f2f;
+    --gold: #b8860b;
+    --text: #1a1a2e;
+    --text-dim: #5a5a7a;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --border: rgba(211, 47, 47, 0.2);
+    --nav-bg: rgba(245, 247, 250, 0.92);
+    --card-border: rgba(0,0,0,0.06);
+    --timeline-line: linear-gradient(to bottom, var(--highlight), var(--gold), transparent);
+    --award-top: linear-gradient(90deg, var(--highlight), var(--gold));
+    --avatar-shadow: rgba(211, 47, 47, 0.2);
+    --conf-bg: rgba(211, 47, 47, 0.08);
+    --skill-bg: rgba(58, 110, 165, 0.12);
+    --skill-bg-hover: #d0dce8;
+    --volunteer-tag-bg: rgba(33, 150, 243, 0.08);
+    --tag-academic-bg: rgba(211, 47, 47, 0.1);
+    --tag-sports-bg: rgba(76, 175, 80, 0.1);
+    --tag-service-bg: rgba(33, 150, 243, 0.1);
+    --gradient-text: linear-gradient(135deg, #1a1a2e 0%, #d32f2f 100%);
+    --pub-bg: rgba(58, 110, 165, 0.08);
+    --pub-border: #c5d4e8;
+    --location-bg: rgba(184, 134, 11, 0.1);
+    --conf-type-bg: rgba(184, 134, 11, 0.1);
+    --scroll-hint-color: #8888a0;
+    --toast-bg: #d32f2f;
+    --link-color: #1565c0;
+    --link-hover: #0d47a1;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
     background: var(--primary);
     color: var(--text);
     min-height: 100vh;
     overflow-x: hidden;
-    line-height: 1.6;
+    transition: background 0.5s ease, color 0.5s ease;
   }
+
+  a { color: var(--link-color); text-decoration: none; transition: color 0.3s; }
+  a:hover { color: var(--link-hover); text-decoration: underline; }
+
+  .theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 200;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+
+  .theme-toggle:hover {
+    transform: scale(1.1) rotate(15deg);
+    border-color: var(--highlight);
+    box-shadow: 0 0 20px rgba(233, 69, 96, 0.2);
+  }
+
+  .theme-toggle svg {
+    width: 22px;
+    height: 22px;
+    transition: all 0.4s ease;
+    fill: var(--highlight);
+  }
+
+  .theme-toggle .sun-icon { display: none; }
+  .theme-toggle .moon-icon { display: block; }
+
+  :root[data-theme="light"] .theme-toggle .sun-icon { display: block; }
+  :root[data-theme="light"] .theme-toggle .moon-icon { display: none; }
 
   .stars {
     position: fixed;
@@ -39,10 +133,11 @@
 
   .star {
     position: absolute;
-    background: white;
+    background: var(--text);
     border-radius: 50%;
     animation: twinkle var(--duration) ease-in-out infinite;
     opacity: var(--opacity);
+    transition: background 0.5s ease;
   }
 
   @keyframes twinkle {
@@ -57,17 +152,17 @@
     padding: 1rem 2rem;
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
-    background: rgba(26, 26, 46, 0.9);
+    gap: 2rem;
+    background: var(--nav-bg);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
-    flex-wrap: wrap;
+    transition: background 0.5s ease, border-color 0.5s ease;
   }
 
   nav a {
     color: var(--text-dim);
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 500;
     transition: all 0.3s;
     position: relative;
@@ -94,13 +189,13 @@
   .container {
     position: relative;
     z-index: 1;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 5rem 2rem 2rem;
   }
 
   .hero {
-    min-height: 85vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -113,30 +208,30 @@
   }
 
   .avatar-wrapper {
-    width: 160px;
-    height: 160px;
+    width: 180px;
+    height: 180px;
     margin: 0 auto 2rem;
     position: relative;
   }
 
   .avatar-ring {
     position: absolute;
-    inset: -8px;
+    inset: -10px;
     border-radius: 50%;
     border: 2px solid var(--highlight);
     animation: pulse-ring 3s ease-in-out infinite;
   }
 
   .avatar-ring:nth-child(2) {
-    inset: -16px;
+    inset: -20px;
     border-color: var(--gold);
     animation-delay: 1s;
-    opacity: 0.4;
+    opacity: 0.5;
   }
 
   @keyframes pulse-ring {
     0%, 100% { transform: scale(1); opacity: 0.8; }
-    50% { transform: scale(1.05); opacity: 0.3; }
+    50% { transform: scale(1.05); opacity: 0.4; }
   }
 
   .avatar {
@@ -145,22 +240,24 @@
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--accent);
-    box-shadow: 0 0 25px rgba(233, 69, 96, 0.25);
+    box-shadow: 0 0 30px var(--avatar-shadow);
+    transition: border-color 0.5s ease, box-shadow 0.5s ease;
   }
 
   .hero h1 {
-    font-size: 2.8rem;
+    font-family: 'Inter', 'Noto Serif SC', serif;
+    font-size: 3rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, #fff 0%, var(--highlight) 100%);
+    background: var(--gradient-text);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    letter-spacing: -0.02em;
+    transition: background 0.5s ease;
   }
 
   .hero .subtitle {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--gold);
     margin-bottom: 1rem;
     font-weight: 500;
@@ -168,46 +265,60 @@
 
   .hero .desc {
     color: var(--text-dim);
-    font-size: 0.95rem;
-    max-width: 550px;
+    font-size: 1rem;
+    max-width: 600px;
     margin: 0 auto 2rem;
     line-height: 1.8;
+    transition: color 0.5s ease;
   }
 
   .contact-badges {
     display: flex;
     justify-content: center;
-    gap: 0.8rem;
+    gap: 1rem;
     flex-wrap: wrap;
   }
 
   .badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    padding: 0.5rem 1rem;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 50px;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--text);
-    transition: all 0.3s;
+    transition: all 0.3s, background 0.5s ease, border-color 0.5s ease, color 0.5s ease;
     cursor: pointer;
-    text-decoration: none;
   }
 
   .badge:hover {
     border-color: var(--highlight);
-    box-shadow: 0 0 12px rgba(233, 69, 96, 0.15);
+    box-shadow: 0 0 15px rgba(233, 69, 96, 0.2);
     transform: translateY(-2px);
   }
 
   .badge svg {
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     fill: var(--highlight);
-    flex-shrink: 0;
+    transition: fill 0.5s ease;
   }
+
+  /* CV下载按钮特殊样式 */
+  .badge.cv-btn {
+    background: linear-gradient(135deg, var(--highlight), #ff6b6b);
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+  }
+  .badge.cv-btn:hover {
+    box-shadow: 0 6px 25px rgba(233, 69, 96, 0.4);
+    transform: translateY(-3px);
+  }
+  .badge.cv-btn svg { fill: #fff; }
 
   .scroll-hint {
     position: absolute;
@@ -215,7 +326,8 @@
     left: 50%;
     transform: translateX(-50%);
     animation: bounce 2s infinite;
-    color: var(--text-dim);
+    color: var(--scroll-hint-color);
+    transition: color 0.5s ease;
   }
 
   @keyframes bounce {
@@ -225,9 +337,9 @@
   }
 
   .section {
-    padding: 3.5rem 0;
+    padding: 4rem 0;
     opacity: 0;
-    transform: translateY(25px);
+    transform: translateY(30px);
     transition: all 0.6s ease;
   }
 
@@ -237,78 +349,110 @@
   }
 
   .section-title {
-    font-size: 1.6rem;
+    font-family: 'Inter', 'Noto Serif SC', serif;
+    font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     display: flex;
     align-items: center;
-    gap: 0.8rem;
-    letter-spacing: -0.01em;
+    gap: 1rem;
   }
 
   .section-title::before {
     content: '';
     width: 4px;
-    height: 1.6rem;
+    height: 2rem;
     background: linear-gradient(to bottom, var(--highlight), var(--gold));
     border-radius: 2px;
   }
 
-  .edu-card {
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--timeline-line);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
     background: var(--card-bg);
     border-radius: 12px;
-    padding: 1.5rem;
-    border: 1px solid rgba(255,255,255,0.05);
-    position: relative;
-    transition: all 0.3s;
+    border: 1px solid var(--card-border);
+    transition: all 0.3s, background 0.5s ease, border-color 0.5s ease;
   }
 
-  .edu-card:hover {
+  .timeline-item:hover {
     border-color: var(--border);
-    transform: translateX(3px);
+    transform: translateX(5px);
   }
 
-  .edu-location {
+  .timeline-item::before {
+    content: '';
     position: absolute;
-    right: 1.5rem;
-    top: 1.5rem;
-    font-size: 0.75rem;
-    color: var(--text-dim);
-    background: rgba(201, 162, 39, 0.1);
-    padding: 0.2rem 0.6rem;
-    border-radius: 4px;
+    left: -2.35rem;
+    top: 1.8rem;
+    width: 12px;
+    height: 12px;
+    background: var(--highlight);
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 10px var(--highlight);
+    transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
   }
 
-  .edu-date {
+  .timeline-date {
     font-size: 0.8rem;
     color: var(--gold);
     font-weight: 500;
     margin-bottom: 0.3rem;
   }
 
-  .edu-school {
+  .timeline-school {
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 0.3rem;
   }
 
-  .edu-degree {
+  .timeline-degree {
     color: var(--text-dim);
     font-size: 0.9rem;
+    transition: color 0.5s ease;
   }
 
-  .edu-advisor {
+  .timeline-advisor {
     color: var(--highlight);
     font-size: 0.85rem;
     margin-top: 0.3rem;
+    transition: color 0.5s ease;
+  }
+
+  .timeline-location {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    background: var(--location-bg);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    transition: color 0.5s ease, background 0.5s ease;
   }
 
   .research-content {
     background: var(--card-bg);
-    border-radius: 12px;
-    padding: 1.8rem;
-    border: 1px solid rgba(255,255,255,0.05);
-    line-height: 1.9;
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--card-border);
+    line-height: 2;
+    transition: background 0.5s ease, border-color 0.5s ease;
   }
 
   .research-content p {
@@ -316,27 +460,25 @@
     text-align: justify;
   }
 
-  .research-content p:last-child {
-    margin-bottom: 0;
-  }
-
   .research-highlight {
     color: var(--gold);
     font-weight: 500;
+    transition: color 0.5s ease;
   }
 
   .pub-list {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 1rem;
+    margin-top: 1.5rem;
   }
 
   .pub-item {
-    background: rgba(15, 52, 96, 0.25);
-    border: 1px solid var(--accent);
+    background: var(--pub-bg);
+    border: 1px solid var(--pub-border);
     border-radius: 10px;
     padding: 1.2rem;
-    transition: all 0.3s;
+    transition: all 0.3s, background 0.5s ease, border-color 0.5s ease;
   }
 
   .pub-item:hover {
@@ -346,28 +488,59 @@
 
   .pub-title {
     font-weight: 600;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
   }
 
   .pub-journal {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--gold);
+    transition: color 0.5s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .pub-journal a.ads-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.2rem 0.6rem;
+    background: rgba(107, 181, 255, 0.15);
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--link-color);
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .pub-journal a.ads-link:hover {
+    background: rgba(107, 181, 255, 0.3);
+    color: var(--link-hover);
+    text-decoration: none;
+  }
+
+  .pub-journal a.ads-link svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
   }
 
   .awards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 0.8rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
   }
 
   .award-card {
     background: var(--card-bg);
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 10px;
-    padding: 1rem;
-    transition: all 0.3s;
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1.2rem;
+    transition: all 0.3s, background 0.5s ease, border-color 0.5s ease;
     position: relative;
     overflow: hidden;
   }
@@ -377,7 +550,7 @@
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 3px;
-    background: linear-gradient(90deg, var(--highlight), var(--gold));
+    background: var(--award-top);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s;
@@ -389,203 +562,216 @@
 
   .award-card:hover {
     border-color: var(--border);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
   }
 
   .award-icon {
-    font-size: 1.3rem;
-    margin-bottom: 0.4rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
   }
 
   .award-name {
     font-weight: 600;
-    font-size: 0.88rem;
+    font-size: 0.95rem;
     line-height: 1.4;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
   }
 
   .award-date {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: var(--gold);
+    transition: color 0.5s ease;
   }
 
   .award-tag {
     display: inline-block;
-    font-size: 0.65rem;
-    padding: 0.12rem 0.4rem;
-    border-radius: 3px;
-    margin-top: 0.4rem;
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    margin-top: 0.5rem;
     font-weight: 500;
   }
 
-  .tag-academic { background: rgba(233, 69, 96, 0.12); color: var(--highlight); }
-  .tag-sports { background: rgba(76, 175, 80, 0.12); color: #4caf50; }
+  .tag-academic { background: var(--tag-academic-bg); color: var(--highlight); }
+  .tag-sports { background: var(--tag-sports-bg); color: #4caf50; }
+  .tag-service { background: var(--tag-service-bg); color: #2196f3; }
 
   .conf-list {
     display: flex;
     flex-direction: column;
-    gap: 0.7rem;
+    gap: 1rem;
   }
 
   .conf-item {
     display: flex;
     align-items: flex-start;
-    gap: 1rem;
-    padding: 1rem;
+    gap: 1.5rem;
+    padding: 1.2rem;
     background: var(--card-bg);
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.05);
-    transition: all 0.3s;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    transition: all 0.3s, background 0.5s ease, border-color 0.5s ease;
   }
 
   .conf-item:hover {
     border-color: var(--border);
-    transform: translateX(4px);
+    transform: translateX(5px);
   }
 
   .conf-date-box {
-    min-width: 65px;
+    min-width: 80px;
     text-align: center;
-    padding: 0.4rem;
-    background: rgba(233, 69, 96, 0.08);
-    border-radius: 6px;
+    padding: 0.5rem;
+    background: var(--conf-bg);
+    border-radius: 8px;
     border: 1px solid var(--border);
-    flex-shrink: 0;
+    transition: background 0.5s ease, border-color 0.5s ease;
   }
 
   .conf-month {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     color: var(--highlight);
     font-weight: 600;
+    transition: color 0.5s ease;
   }
 
   .conf-year {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: var(--text);
+    transition: color 0.5s ease;
   }
 
   .conf-info h4 {
-    font-size: 0.92rem;
+    font-size: 1rem;
     font-weight: 600;
-    margin-bottom: 0.2rem;
-    line-height: 1.4;
+    margin-bottom: 0.3rem;
   }
 
   .conf-info p {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--text-dim);
+    transition: color 0.5s ease;
   }
 
   .conf-type {
     display: inline-block;
     margin-left: auto;
-    padding: 0.25rem 0.6rem;
-    background: rgba(201, 162, 39, 0.1);
+    padding: 0.3rem 0.8rem;
+    background: var(--conf-type-bg);
     color: var(--gold);
     border-radius: 4px;
-    font-size: 0.72rem;
+    font-size: 0.8rem;
     font-weight: 500;
     white-space: nowrap;
-    flex-shrink: 0;
+    transition: background 0.5s ease, color 0.5s ease;
   }
 
   .skills-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
   }
 
   .skill-category {
     background: var(--card-bg);
-    border-radius: 12px;
-    padding: 1.2rem;
-    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid var(--card-border);
+    transition: background 0.5s ease, border-color 0.5s ease;
   }
 
   .skill-category h4 {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--gold);
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.5rem;
+    transition: color 0.5s ease;
   }
 
   .skill-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 0.5rem;
   }
 
   .skill-tag {
-    padding: 0.35rem 0.7rem;
-    background: rgba(15, 52, 96, 0.35);
-    border: 1px solid var(--accent);
-    border-radius: 5px;
-    font-size: 0.8rem;
-    transition: all 0.3s;
+    padding: 0.4rem 0.8rem;
+    background: var(--skill-bg);
+    border: 1px solid var(--pub-border);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    transition: all 0.3s, background 0.5s ease, border-color 0.5s ease;
   }
 
   .skill-tag:hover {
-    background: var(--accent);
+    background: var(--skill-bg-hover);
     border-color: var(--highlight);
-    transform: scale(1.03);
+    transform: scale(1.05);
   }
 
   .volunteer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 0.8rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
   }
 
   .volunteer-card {
     background: var(--card-bg);
-    border-radius: 10px;
-    padding: 1rem;
-    border: 1px solid rgba(255,255,255,0.05);
-    transition: all 0.3s;
+    border-radius: 12px;
+    padding: 1.2rem;
+    border: 1px solid var(--card-border);
+    transition: all 0.3s, background 0.5s ease, border-color 0.5s ease;
     position: relative;
   }
 
   .volunteer-card:hover {
-    border-color: rgba(33, 150, 243, 0.25);
-    transform: translateY(-2px);
+    border-color: rgba(33, 150, 243, 0.3);
+    transform: translateY(-3px);
   }
 
   .volunteer-role {
     font-weight: 600;
-    font-size: 0.88rem;
-    margin-bottom: 0.25rem;
-    line-height: 1.4;
-    padding-right: 3rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .volunteer-org {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-bottom: 0.5rem;
+    transition: color 0.5s ease;
   }
 
   .volunteer-date {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: var(--gold);
+    transition: color 0.5s ease;
   }
 
   .volunteer-type {
     position: absolute;
-    top: 0.8rem;
-    right: 0.8rem;
-    font-size: 0.65rem;
-    padding: 0.15rem 0.4rem;
-    border-radius: 3px;
-    background: rgba(33, 150, 243, 0.1);
+    top: 1rem;
+    right: 1rem;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    background: var(--volunteer-tag-bg);
     color: #2196f3;
-    font-weight: 500;
+    transition: background 0.5s ease;
   }
 
   footer {
     text-align: center;
-    padding: 2.5rem 2rem;
+    padding: 3rem 2rem;
     color: var(--text-dim);
-    font-size: 0.8rem;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    border-top: 1px solid var(--card-border);
+    margin-top: 2rem;
+    transition: color 0.5s ease, border-color 0.5s ease;
   }
 
   @keyframes fadeInOut {
@@ -597,17 +783,25 @@
 
   @media (max-width: 768px) {
     .hero h1 { font-size: 2rem; }
-    .section-title { font-size: 1.3rem; }
+    .section-title { font-size: 1.5rem; }
+    .timeline { padding-left: 1.5rem; }
+    .timeline-item::before { left: -1.85rem; }
     .awards-grid { grid-template-columns: 1fr; }
     .conf-item { flex-direction: column; gap: 0.5rem; }
-    .conf-type { margin-left: 0; margin-top: 0.3rem; }
-    nav { gap: 0.8rem; padding: 0.8rem; }
-    .contact-badges { flex-direction: column; align-items: center; }
-    .badge { width: fit-content; }
+    .conf-type { margin-left: 0; margin-top: 0.5rem; }
+    nav { gap: 1rem; font-size: 0.8rem; padding: 1rem; flex-wrap: wrap; }
+    .theme-toggle { top: auto; bottom: 1.5rem; right: 1.5rem; width: 50px; height: 50px; }
+    .theme-toggle svg { width: 24px; height: 24px; }
   }
 </style>
+<base target="_blank">
 </head>
 <body>
+
+<button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+  <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+</button>
 
 <div class="stars" id="stars"></div>
 
@@ -628,24 +822,28 @@
       <div class="avatar-wrapper">
         <div class="avatar-ring"></div>
         <div class="avatar-ring"></div>
-        <img src="https://ui-avatars.com/api/?name=J+P+Chen&background=1a1a2e&color=e94560&size=160&font-size=0.35&bold=true" alt="JUN-PING CHEN" class="avatar">
+        <img src="https://ui-avatars.com/api/?name=J+P+Chen&background=1a1a2e&color=e94560&size=180&font-size=0.35" alt="JUN-PING CHEN" class="avatar">
       </div>
       <h1>JUN-PING CHEN</h1>
       <p class="subtitle">Ph.D. Candidate in Astrophysics</p>
       <p class="desc">
         School of Physics and Astronomy, Sun Yat-sen University<br>
         Expected Graduation: 2027<br>
-        Gamma-Ray Bursts (GRBs) · Tidal Disruption Events (TDEs) · Compact Binaries
+        Research Interests: Gamma-Ray Bursts (GRBs), Tidal Disruption Events (TDEs), Compact Binaries
       </p>
       <div class="contact-badges">
-        <a class="badge" href="mailto:chenjp79@mail2.sysu.edu.cn">
+        <span class="badge cv-btn" onclick="downloadCV()">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          Download CV (PDF)
+        </span>
+        <span class="badge" onclick="copyToClipboard('chenjp79@mail2.sysu.edu.cn')">
           <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
           chenjp79@mail2.sysu.edu.cn
-        </a>
-        <a class="badge" href="mailto:chenjp3@icloud.com">
+        </span>
+        <span class="badge" onclick="copyToClipboard('chenjp3@icloud.com')">
           <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
           chenjp3@icloud.com
-        </a>
+        </span>
         <span class="badge">
           <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
           +86-134-3192-0737
@@ -661,12 +859,14 @@
 
   <section class="section" id="education">
     <h2 class="section-title">Education</h2>
-    <div class="edu-card">
-      <span class="edu-location">Guangdong, China</span>
-      <div class="edu-date">Sep. 2023 – Jun. 2027 (Expected)</div>
-      <div class="edu-school">Sun Yat-sen University</div>
-      <div class="edu-degree">Ph.D. in Astrophysics</div>
-      <div class="edu-advisor">Advisor: Rong-Feng Shen</div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="timeline-location">Guangdong, China</span>
+        <div class="timeline-date">Sep. 2023 – Jun. 2027 (Expected)</div>
+        <div class="timeline-school">Sun Yat-sen University</div>
+        <div class="timeline-degree">Ph.D. in Astrophysics</div>
+        <div class="timeline-advisor">Advisor: <a href="https://physics.sysu.edu.cn/teacher/1258" target="_blank">Rong-Feng Shen</a></div>
+      </div>
     </div>
   </section>
 
@@ -679,8 +879,8 @@
       <p>
         By combining <span class="research-highlight">theoretical modeling</span>, <span class="research-highlight">multi-wavelength data analysis</span>, and <span class="research-highlight">hydrodynamic simulations</span>, I study the dynamical evolution and radiation processes of transient sources to interpret their observational signatures and explore their underlying physical origins.
       </p>
-      <p>
-        Since <strong>October 2025</strong>, I have been serving as an <strong>observation duty assistant</strong> for the <span class="research-highlight">Einstein Probe (EP)</span> mission. Since <strong>November 2024</strong>, I have been an <strong>affiliated scientist</strong> of the <span class="research-highlight">SVOM</span> (Space-based multi-band astronomical Variable Object Monitor) scientific team.
+      <p style="margin-bottom:0;">
+        Since October 2025, I have been serving as an <strong>observation duty assistant</strong> for the <span class="research-highlight">Einstein Probe (EP)</span> mission. Since November 2024, I have been an <strong>affiliated scientist</strong> of the <span class="research-highlight">SVOM</span> (Space-based multi-band astronomical Variable Object Monitor) scientific team.
       </p>
     </div>
   </section>
@@ -690,19 +890,43 @@
     <div class="pub-list">
       <div class="pub-item">
         <div class="pub-title">1. Chen J P, Shen R F, Chen J H, et al. Simulating the Late Stages of WD–BH/NS Mergers: An Origin for Fast X-Ray Transients and GRBs with Periodic Modulations</div>
-        <div class="pub-journal">The Astrophysical Journal, 2026, 1003(2): 153</div>
+        <div class="pub-journal">
+          <em>The Astrophysical Journal</em>, 2026, 1003(2): 153
+          <a href="https://ui.adsabs.harvard.edu/abs/2026ApJ...1003..153C/abstract" target="_blank" class="ads-link" title="View on NASA ADS">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            ADS
+          </a>
+        </div>
       </div>
       <div class="pub-item">
         <div class="pub-title">2. Chen J, Shen R F, Tan W J, et al. Repeated Partial Disruptions in a White Dwarf–Neutron Star or White Dwarf–Black Hole Merger Modulate the Prompt Emission of Long-duration Merger-type GRBs</div>
-        <div class="pub-journal">The Astrophysical Journal Letters, 2024, 973(1): L33</div>
+        <div class="pub-journal">
+          <em>The Astrophysical Journal Letters</em>, 2024, 973(1): L33
+          <a href="https://ui.adsabs.harvard.edu/abs/2024ApJ...973L..33C/abstract" target="_blank" class="ads-link" title="View on NASA ADS">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            ADS
+          </a>
+        </div>
       </div>
       <div class="pub-item">
         <div class="pub-title">3. Chen J, Yu J, Huang W, et al. Transient quasi-periodic oscillations in the gamma-ray light curves of bright blazars</div>
-        <div class="pub-journal">Monthly Notices of the Royal Astronomical Society, 2024, 528(4): 6807-6822</div>
+        <div class="pub-journal">
+          <em>Monthly Notices of the Royal Astronomical Society</em>, 2024, 528(4): 6807-6822
+          <a href="https://ui.adsabs.harvard.edu/abs/2024MNRAS.528.6807C/abstract" target="_blank" class="ads-link" title="View on NASA ADS">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            ADS
+          </a>
+        </div>
       </div>
       <div class="pub-item">
         <div class="pub-title">4. Chen J, Yi T, Gong Y, et al. A 31.3 day transient quasi-periodic oscillation in gamma-ray emission from blazar S5 0716+714</div>
-        <div class="pub-journal">The Astrophysical Journal, 2022, 938(1): 8</div>
+        <div class="pub-journal">
+          <em>The Astrophysical Journal</em>, 2022, 938(1): 8
+          <a href="https://ui.adsabs.harvard.edu/abs/2022ApJ...938....8C/abstract" target="_blank" class="ads-link" title="View on NASA ADS">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            ADS
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -754,7 +978,7 @@
       </div>
       <div class="award-card">
         <div class="award-icon">🚣</div>
-        <div class="award-name">4th Place, Men's 700m Dragon Boat Race, GBA (Zhongshan) Dragon Boat Invitational</div>
+        <div class="award-name">4th Place, Men's 700m Dragon Boat Race, Guangdong–Hong Kong–Macao Greater Bay Area (Zhongshan) Dragon Boat Invitational</div>
         <div class="award-date">Jun. 2026</div>
         <span class="award-tag tag-sports">Sports</span>
       </div>
@@ -795,7 +1019,7 @@
         </div>
         <div class="conf-info">
           <h4>Insight-HXMT for Six Years and Beyond Conference</h4>
-          <p>Insight-HXMT Collaboration · Zhuhai, China</p>
+          <p>Host: Insight-HXMT Collaboration · Zhuhai, China</p>
         </div>
         <span class="conf-type">Participant</span>
       </div>
@@ -806,7 +1030,7 @@
         </div>
         <div class="conf-info">
           <h4>3rd Nanjing GRB Conference</h4>
-          <p>Nanjing University · Suzhou, China</p>
+          <p>Host: Nanjing University · Suzhou, China</p>
         </div>
         <span class="conf-type">Contributed Talk</span>
       </div>
@@ -817,9 +1041,9 @@
         </div>
         <div class="conf-info">
           <h4>1st Graduate Academic Forum, School of Physics and Astronomy, SYSU</h4>
-          <p>School of Physics and Astronomy, SYSU · Guangzhou, China</p>
+          <p>Host: School of Physics and Astronomy, SYSU · Guangzhou, China</p>
         </div>
-        <span class="conf-type">Poster</span>
+        <span class="conf-type">Poster Presentation</span>
       </div>
       <div class="conf-item">
         <div class="conf-date-box">
@@ -828,7 +1052,7 @@
         </div>
         <div class="conf-info">
           <h4>Einstein Probe (EP) Science Workshop 2024</h4>
-          <p>Einstein Probe Collaboration · Suzhou, China</p>
+          <p>Host: Einstein Probe Collaboration · Suzhou, China</p>
         </div>
         <span class="conf-type">Participant</span>
       </div>
@@ -839,7 +1063,7 @@
         </div>
         <div class="conf-info">
           <h4>3rd Graduate Astronomy Forum, School of Physics and Astronomy, SYSU</h4>
-          <p>School of Physics and Astronomy, SYSU · Zhuhai, China</p>
+          <p>Host: School of Physics and Astronomy, SYSU · Zhuhai, China</p>
         </div>
         <span class="conf-type">Contributed Talk</span>
       </div>
@@ -850,7 +1074,7 @@
         </div>
         <div class="conf-info">
           <h4>2nd Graduate Academic Forum, School of Physics and Astronomy, SYSU</h4>
-          <p>School of Physics and Astronomy, SYSU · Zhuhai, China</p>
+          <p>Host: School of Physics and Astronomy, SYSU · Zhuhai, China</p>
         </div>
         <span class="conf-type">Contributed Talk</span>
       </div>
@@ -861,7 +1085,7 @@
         </div>
         <div class="conf-info">
           <h4>2nd Graduate Academic Festival and Research Achievement Presentation, School of Science, SYSU</h4>
-          <p>Graduate School, SYSU · Guangzhou, China</p>
+          <p>Host: Graduate School, SYSU · Guangzhou, China</p>
         </div>
         <span class="conf-type">Contributed Talk</span>
       </div>
@@ -871,8 +1095,8 @@
           <div class="conf-year">2025</div>
         </div>
         <div class="conf-info">
-          <h4>3rd Astronomy Big Data Workshop: X-ray Astronomy in the Era of EP</h4>
-          <p>Einstein Probe Collaboration · Kunming, China</p>
+          <h4>3rd Astronomy Big Data Workshop: X-ray Astronomy in the Era of the Einstein Probe Satellite</h4>
+          <p>Host: Einstein Probe Collaboration · Kunming, China</p>
         </div>
         <span class="conf-type">Participant</span>
       </div>
@@ -883,7 +1107,7 @@
         </div>
         <div class="conf-info">
           <h4>3rd Shen Kuo Academic Symposium of the Chinese Astronomical Society</h4>
-          <p>Chinese Astronomical Society · Zhuhai, China</p>
+          <p>Host: Chinese Astronomical Society · Zhuhai, China</p>
         </div>
         <span class="conf-type">Contributed Talk</span>
       </div>
@@ -940,7 +1164,7 @@
       </div>
       <div class="volunteer-card">
         <span class="volunteer-type">Volunteer</span>
-        <div class="volunteer-role">Air Force-themed Military Music Concert</div>
+        <div class="volunteer-role">Air Force-themed Military Music Concert "The Party's Glory Shines on the Blue Sky"</div>
         <div class="volunteer-date">Nov. 2024</div>
       </div>
       <div class="volunteer-card">
@@ -950,7 +1174,7 @@
       </div>
       <div class="volunteer-card">
         <span class="volunteer-type">Volunteer</span>
-        <div class="volunteer-role">Science Popularization at the CSST Exhibition Hall</div>
+        <div class="volunteer-role">Science Popularization Volunteer at the CSST Exhibition Hall</div>
         <div class="volunteer-date">Nov. 2024 – Mar. 2025</div>
       </div>
       <div class="volunteer-card">
@@ -959,9 +1183,9 @@
         <div class="volunteer-date">Apr. 2025</div>
       </div>
       <div class="volunteer-card">
-        <span class="volunteer-type">Service</span>
+        <span class="volunteer-type">Student Service</span>
         <div class="volunteer-role">Class Psychological Representative, Sun Yat-sen University</div>
-        <div class="volunteer-date">Sep. 2024 – Present</div>
+        <div class="volunteer-date">Sep. 2024 – Now</div>
       </div>
     </div>
   </section>
@@ -973,24 +1197,52 @@
 </div>
 
 <script>
+  const themeToggle = document.getElementById('themeToggle');
+  const root = document.documentElement;
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+  let currentTheme = localStorage.getItem('theme');
+  if (!currentTheme) {
+    currentTheme = prefersDark.matches ? 'dark' : 'light';
+  }
+  function applyTheme(theme) {
+    if (theme === 'light') {
+      root.setAttribute('data-theme', 'light');
+    } else {
+      root.removeAttribute('data-theme');
+    }
+    localStorage.setItem('theme', theme);
+  }
+  applyTheme(currentTheme);
+  themeToggle.addEventListener('click', () => {
+    const isLight = root.hasAttribute('data-theme') && root.getAttribute('data-theme') === 'light';
+    applyTheme(isLight ? 'dark' : 'light');
+  });
+  prefersDark.addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+      applyTheme(e.matches ? 'dark' : 'light');
+    }
+  });
+
   const starsContainer = document.getElementById('stars');
-  for (let i = 0; i < 120; i++) {
+  for (let i = 0; i < 150; i++) {
     const star = document.createElement('div');
     star.className = 'star';
     star.style.left = Math.random() * 100 + '%';
     star.style.top = Math.random() * 100 + '%';
-    const size = Math.random() * 2 + 0.5;
+    const size = Math.random() * 2 + 1;
     star.style.width = size + 'px';
     star.style.height = size + 'px';
     star.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
-    star.style.setProperty('--opacity', Math.random() * 0.6 + 0.2);
+    star.style.setProperty('--opacity', Math.random() * 0.7 + 0.3);
     starsContainer.appendChild(star);
   }
 
   const sections = document.querySelectorAll('.section');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
     });
   }, { threshold: 0.1 });
   sections.forEach(section => observer.observe(section));
@@ -1000,7 +1252,8 @@
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         navLinks.forEach(link => link.classList.remove('active'));
-        const activeLink = document.querySelector('nav a[href="#' + entry.target.id + '"]');
+        const id = entry.target.id;
+        const activeLink = document.querySelector('nav a[href="#' + id + '"]');
         if (activeLink) activeLink.classList.add('active');
       }
     });
@@ -1011,9 +1264,25 @@
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const target = document.querySelector(link.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
     });
   });
+
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+      const toast = document.createElement('div');
+      toast.textContent = 'Copied: ' + text;
+      toast.style.cssText = 'position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:var(--toast-bg);color:white;padding:0.8rem 1.5rem;border-radius:8px;z-index:9999;font-size:0.9rem;animation:fadeInOut 2s ease;';
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 2000);
+    });
+  }
+
+  function downloadCV() {
+    window.open('CV_JunPing_Chen.pdf', '_blank');
+  }
 </script>
 
 </body>
