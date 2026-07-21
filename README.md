@@ -1,6 +1,6 @@
-# JUN-PING CHEN - Personal Academic Homepage
+# 🌐 [Live Website → https://chenjp3.github.io](https://chenjp3.github.io)
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://chenjunping.github.io)
+# JUN-PING CHEN - Personal Academic Homepage
 
 Personal academic homepage of **JUN-PING CHEN**, a Ph.D. Candidate in Astrophysics at Sun Yat-sen University.
 
