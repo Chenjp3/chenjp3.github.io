@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JUN-PING CHEN - Personal Homepage</title>
+<title>Jun-Ping Chen | Astrophysics Ph.D. Candidate</title>
+<meta name="description" content="Jun-Ping Chen - Ph.D. Candidate in Astrophysics at Sun Yat-sen University. Research on Gamma-Ray Bursts, Tidal Disruption Events, and Compact Binaries.">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -306,7 +307,6 @@
     transition: fill 0.5s ease;
   }
 
-  /* CV下载按钮特殊样式 */
   .badge.cv-btn {
     background: linear-gradient(135deg, var(--highlight), #ff6b6b);
     color: #fff;
@@ -713,55 +713,58 @@
     transform: scale(1.05);
   }
 
-  .volunteer-grid {
+  /* ===== 修复后的志愿服务部分 ===== */
+  .service-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1rem;
   }
 
-  .volunteer-card {
+  .service-card {
     background: var(--card-bg);
     border-radius: 12px;
     padding: 1.2rem;
     border: 1px solid var(--card-border);
     transition: all 0.3s, background 0.5s ease, border-color 0.5s ease;
-    position: relative;
   }
 
-  .volunteer-card:hover {
-    border-color: rgba(33, 150, 243, 0.3);
+  .service-card:hover {
+    border-color: var(--border);
     transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
   }
 
-  .volunteer-role {
+  .service-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-role {
     font-weight: 600;
     font-size: 0.95rem;
-    margin-bottom: 0.3rem;
+    line-height: 1.4;
+    flex: 1;
   }
 
-  .volunteer-org {
-    font-size: 0.85rem;
-    color: var(--text-dim);
-    margin-bottom: 0.5rem;
-    transition: color 0.5s ease;
-  }
-
-  .volunteer-date {
-    font-size: 0.8rem;
-    color: var(--gold);
-    transition: color 0.5s ease;
-  }
-
-  .volunteer-type {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+  .service-type {
     font-size: 0.7rem;
     padding: 0.2rem 0.5rem;
     border-radius: 4px;
     background: var(--volunteer-tag-bg);
     color: #2196f3;
-    transition: background 0.5s ease;
+    white-space: nowrap;
+    font-weight: 500;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .service-date {
+    font-size: 0.8rem;
+    color: var(--gold);
+    transition: color 0.5s ease;
   }
 
   footer {
@@ -792,9 +795,10 @@
     nav { gap: 1rem; font-size: 0.8rem; padding: 1rem; flex-wrap: wrap; }
     .theme-toggle { top: auto; bottom: 1.5rem; right: 1.5rem; width: 50px; height: 50px; }
     .theme-toggle svg { width: 24px; height: 24px; }
+    .service-header { flex-direction: column; gap: 0.3rem; }
+    .service-type { align-self: flex-start; }
   }
 </style>
-<base target="_blank">
 </head>
 <body>
 
@@ -807,57 +811,80 @@
 
 <nav id="navbar">
   <a href="#home" class="active">Home</a>
+  <a href="#education">Education</a>
   <a href="#research">Research</a>
   <a href="#publications">Publications</a>
   <a href="#awards">Awards</a>
   <a href="#conferences">Conferences</a>
-  <a href="#volunteer">Volunteer</a>
+  <a href="#skills">Skills</a>
+  <a href="#service">Service</a>
 </nav>
 
 <div class="container">
   <section class="hero" id="home">
-    <img src="Chenjp.png" alt="Jun-Ping Chen" class="avatar">
-    <div class="hero-info">
+    <div class="hero-content">
+      <div class="avatar-wrapper">
+        <div class="avatar-ring"></div>
+        <div class="avatar-ring"></div>
+        <img src="Chenjp.png" alt="Jun-Ping Chen" class="avatar">
+      </div>
       <h1>Jun-Ping Chen</h1>
-      <div class="subtitle">Ph.D. Candidate in Astrophysics</div>
-      <div class="affiliation">School of Physics and Astronomy, Sun Yat-sen University</div>
-      <div class="interests">Gamma-Ray Bursts · Tidal Disruption Events · Compact Binaries</div>
-      <div class="hero-links">
-        <a href="Chenjp_Res_CV.pdf" target="_blank" class="cv-btn">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-          CV
-        </a>
-        <a href="https://orcid.org/0009-0001-7397-1727" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm0 22c-5.52 0-10-4.48-10-10S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10z"/><circle cx="12" cy="12" r="3"/></svg>
-          ORCID
-        </a>
-        <span onclick="copyToClipboard('chenjp79@mail2.sysu.edu.cn')">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          Email
+      <p class="subtitle">Ph.D. Candidate in Astrophysics</p>
+      <p class="desc">
+        School of Physics and Astronomy, Sun Yat-sen University<br>
+        Expected Graduation: 2027<br>
+        Research: Gamma-Ray Bursts, Tidal Disruption Events, Compact Binaries
+      </p>
+      <div class="contact-badges">
+        <span class="badge cv-btn" onclick="window.open('Chenjp_Res_CV.pdf', '_blank')">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          Download CV (PDF)
         </span>
-        <span onclick="copyToClipboard('chenjp3@icloud.com')">
+        <span class="badge" onclick="copyToClipboard('chenjp79@mail2.sysu.edu.cn')">
           <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          Alt Email
+          chenjp79@mail2.sysu.edu.cn
         </span>
-        <span>
+        <span class="badge" onclick="copyToClipboard('chenjp3@icloud.com')">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          chenjp3@icloud.com
+        </span>
+        <span class="badge">
           <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
           +86-134-3192-0737
         </span>
       </div>
     </div>
+    <div class="scroll-hint">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </div>
   </section>
-  
+
+  <section class="section" id="education">
+    <h2 class="section-title">Education</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="timeline-location">Guangdong, China</span>
+        <div class="timeline-date">Sep. 2023 – Jun. 2027 (Expected)</div>
+        <div class="timeline-school">Sun Yat-sen University</div>
+        <div class="timeline-degree">Ph.D. in Astrophysics</div>
+        <div class="timeline-advisor">Advisor: <a href="https://physics.sysu.edu.cn/teacher/1258" target="_blank">Prof. Rong-Feng Shen</a></div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="research">
     <h2 class="section-title">Research Interests</h2>
     <div class="research-content">
       <p>
-        My research interests focus on the <span class="research-highlight">progenitors, physical mechanisms, and observational properties</span> of high-energy transient phenomena, including <span class="research-highlight">gamma-ray bursts (GRBs)</span>, <span class="research-highlight">fast X-ray transients</span>, and <span class="research-highlight">tidal disruption events (TDEs)</span>.
+        My research focuses on the <span class="research-highlight">progenitors, physical mechanisms, and observational properties</span> of high-energy transient phenomena, including <span class="research-highlight">gamma-ray bursts (GRBs)</span>, <span class="research-highlight">fast X-ray transients</span>, and <span class="research-highlight">tidal disruption events (TDEs)</span>.
       </p>
       <p>
-        By combining <span class="research-highlight">theoretical modeling</span>, <span class="research-highlight">multi-wavelength data analysis</span>, and <span class="research-highlight">hydrodynamic simulations</span>, I study the dynamical evolution and radiation processes of transient sources to interpret their observational signatures and explore their underlying physical origins.
+        By combining <span class="research-highlight">theoretical modeling</span>, <span class="research-highlight">multi-wavelength data analysis</span>, and <span class="research-highlight">hydrodynamic simulations</span>, I investigate the dynamical evolution and radiation processes of transient sources to interpret their observational signatures and explore their underlying physical origins.
       </p>
       <p style="margin-bottom:0;">
-        Since October 2025, I have been serving as an <strong>observation duty assistant</strong> for the <span class="research-highlight">Einstein Probe (EP)</span> mission. Since November 2024, I have been an <strong>affiliated scientist</strong> of the <span class="research-highlight">SVOM</span> (Space-based multi-band astronomical Variable Object Monitor) scientific team.
+        I serve as an <strong>observation duty assistant</strong> for the <span class="research-highlight">Einstein Probe (EP)</span> mission (since Oct. 2025) and as an <strong>affiliated scientist</strong> of the <span class="research-highlight">SVOM</span> scientific team (since Nov. 2024).
       </p>
     </div>
   </section>
@@ -869,7 +896,7 @@
         <div class="pub-title">1. Chen J P, Shen R F, Chen J H, et al. Simulating the Late Stages of WD–BH/NS Mergers: An Origin for Fast X-Ray Transients and GRBs with Periodic Modulations</div>
         <div class="pub-journal">
           <em>The Astrophysical Journal</em>, 2026, 1003(2): 153
-          <a href="https://ui.adsabs.harvard.edu/abs/2026ApJ..1003..153C/abstract" target="_blank" class="ads-link" title="View on NASA ADS">
+          <a href="https://ui.adsabs.harvard.edu/abs/2026ApJ...1003..153C/abstract" target="_blank" class="ads-link" title="View on NASA ADS">
             <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
             ADS
           </a>
@@ -1091,64 +1118,101 @@
     </div>
   </section>
 
-    <section class="section" id="service">
+  <section class="section" id="skills">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-container">
+      <div class="skill-category">
+        <h4>💻 Programming</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Fortran</span>
+          <span class="skill-tag">MATLAB</span>
+          <span class="skill-tag">Linux Shell</span>
+          <span class="skill-tag">Ubuntu</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h4>📊 Data Analysis</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">HEASoft</span>
+          <span class="skill-tag">XSPEC</span>
+          <span class="skill-tag">Astropy</span>
+          <span class="skill-tag">NumPy</span>
+          <span class="skill-tag">Matplotlib</span>
+          <span class="skill-tag">emcee</span>
+          <span class="skill-tag">Origin</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <h4>🌊 Numerical Simulation</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Smoothed Particle Hydrodynamics (SPH)</span>
+          <span class="skill-tag">Phantom</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="service">
     <h2 class="section-title">Professional Service & Outreach</h2>
-    <div class="service-list">
-      <div class="service-item">
-        <div class="service-content">
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-header">
           <div class="service-role">Science Popularization Volunteer, CSST Exhibition Hall</div>
-          <div class="service-date">Nov. 2024 – Mar. 2025</div>
+          <span class="service-type">Outreach</span>
         </div>
-        <span class="service-type">Outreach</span>
+        <div class="service-date">Nov. 2024 – Mar. 2025</div>
       </div>
-      <div class="service-item">
-        <div class="service-content">
+      <div class="service-card">
+        <div class="service-header">
           <div class="service-role">Class Psychological Representative, Sun Yat-sen University</div>
-          <div class="service-date">Sep. 2024 – Present</div>
+          <span class="service-type">Student Service</span>
         </div>
-        <span class="service-type">Student Service</span>
+        <div class="service-date">Sep. 2024 – Present</div>
       </div>
-      <div class="service-item">
-        <div class="service-content">
+      <div class="service-card">
+        <div class="service-header">
           <div class="service-role">Centennial Anniversary Celebration of Sun Yat-sen University</div>
-          <div class="service-date">Nov. 2024</div>
+          <span class="service-type">Volunteer</span>
         </div>
-        <span class="service-type">Volunteer</span>
+        <div class="service-date">Nov. 2024</div>
       </div>
-      <div class="service-item">
-        <div class="service-content">
+      <div class="service-card">
+        <div class="service-header">
           <div class="service-role">Environmental Public Welfare Activity "Greening with Small Actions"</div>
-          <div class="service-date">Mar. 2024</div>
+          <span class="service-type">Volunteer</span>
         </div>
-        <span class="service-type">Volunteer</span>
+        <div class="service-date">Mar. 2024</div>
       </div>
-      <div class="service-item">
-        <div class="service-content">
+      <div class="service-card">
+        <div class="service-header">
           <div class="service-role">Air Force-themed Military Music Concert Volunteer</div>
-          <div class="service-date">Nov. 2024</div>
+          <span class="service-type">Volunteer</span>
         </div>
-        <span class="service-type">Volunteer</span>
+        <div class="service-date">Nov. 2024</div>
       </div>
-      <div class="service-item">
-        <div class="service-content">
+      <div class="service-card">
+        <div class="service-header">
           <div class="service-role">Public Welfare Activity "Tracing the Century-old Campus"</div>
-          <div class="service-date">Nov. 2024</div>
+          <span class="service-type">Volunteer</span>
         </div>
-        <span class="service-type">Volunteer</span>
+        <div class="service-date">Nov. 2024</div>
       </div>
-      <div class="service-item">
-        <div class="service-content">
+      <div class="service-card">
+        <div class="service-header">
           <div class="service-role">Dragon Boat Race of Sun Yat-sen University</div>
-          <div class="service-date">Apr. 2025</div>
+          <span class="service-type">Volunteer</span>
         </div>
-        <span class="service-type">Volunteer</span>
+        <div class="service-date">Apr. 2025</div>
       </div>
     </div>
   </section>
 
   <footer>
     <p>&copy; 2026 Jun-Ping Chen · School of Physics and Astronomy, Sun Yat-sen University</p>
+    <p style="margin-top:0.5rem; font-size:0.75rem;">Gamma-Ray Bursts · Tidal Disruption Events · Compact Binaries</p>
   </footer>
+</div>
 
 <script>
   const themeToggle = document.getElementById('themeToggle');
@@ -1232,10 +1296,6 @@
       document.body.appendChild(toast);
       setTimeout(() => toast.remove(), 2000);
     });
-  }
-
-  function downloadCV() {
-    window.open('Chenjp_Res_CV.pdf', '_blank');
   }
 </script>
 
