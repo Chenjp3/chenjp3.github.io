@@ -403,63 +403,100 @@
     fill: currentColor;
   }
 
-  .awards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1rem;
-  }
-  .award-card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 12px;
-    padding: 1.2rem;
-    transition: all 0.3s, background 0.5s ease, border-color 0.5s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  .award-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 3px;
-    background: var(--award-top);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s;
-  }
-  .award-card:hover::before {
-    transform: scaleX(1);
-  }
-  .award-card:hover {
-    border-color: var(--border);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-  }
-  .award-icon {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-  .award-name {
-    font-weight: 600;
-    font-size: 0.95rem;
-    line-height: 1.4;
-    margin-bottom: 0.5rem;
-  }
-  .award-date {
-    font-size: 0.8rem;
-    color: var(--gold);
-    transition: color 0.5s ease;
-  }
-  .award-tag {
-    display: inline-block;
-    font-size: 0.7rem;
-    padding: 0.15rem 0.5rem;
-    border-radius: 4px;
-    margin-top: 0.5rem;
-    font-weight: 500;
-  }
+
   .tag-academic { background: var(--tag-academic-bg); color: var(--highlight); }
   .tag-sports { background: var(--tag-sports-bg); color: #4caf50; }
+
+  /* ===== Awards Two-Column Layout ===== */
+  .awards-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .awards-category {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.3s;
+  }
+  .awards-category:hover {
+    border-color: var(--border);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+  .awards-cat-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .cat-icon {
+    font-size: 1.4rem;
+  }
+  .awards-timeline {
+    position: relative;
+    padding-left: 1.2rem;
+  }
+  .awards-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.25rem;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--highlight), var(--gold), transparent);
+    opacity: 0.4;
+  }
+  .awards-tl-item {
+    position: relative;
+    padding: 0.6rem 0 0.6rem 1rem;
+    transition: all 0.3s;
+  }
+  .awards-tl-item:hover {
+    transform: translateX(5px);
+  }
+  .awards-tl-dot {
+    position: absolute;
+    left: -1.05rem;
+    top: 0.95rem;
+    width: 10px;
+    height: 10px;
+    background: var(--highlight);
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 8px var(--highlight);
+  }
+  .sports-dot {
+    background: #4caf50;
+    box-shadow: 0 0 8px #4caf50;
+  }
+  .awards-tl-date {
+    font-size: 0.75rem;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 0.15rem;
+  }
+  .awards-tl-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: var(--text);
+  }
+  .awards-tl-org {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    margin-top: 0.1rem;
+  }
+
+  @media (max-width: 768px) {
+    .awards-wrapper {
+      grid-template-columns: 1fr;
+    }
+  }
 
   .conf-list {
     display: flex;
@@ -678,7 +715,7 @@
         By combining <span class="research-highlight">theoretical modeling</span>, <span class="research-highlight">multi-wavelength data analysis</span>, and <span class="research-highlight">hydrodynamic simulations</span>, I investigate the dynamical evolution and radiation processes of transient sources to interpret their observational signatures and explore their underlying physical origins.
       </p>
       <p style="margin-bottom:0;">
-        I serve as an <strong>Technical Assistant (TA)</strong> for the <span class="research-highlight">Einstein Probe (EP)</span> mission (since Oct. 2025) and as an <strong>affiliated scientist</strong> of the <span class="research-highlight">SVOM</span> scientific team (since Nov. 2024).
+        I serve as an <strong>observation duty assistant</strong> for the <span class="research-highlight">Einstein Probe (EP)</span> mission (since Oct. 2025) and as an <strong>affiliated scientist</strong> of the <span class="research-highlight">SVOM</span> scientific team (since Nov. 2024).
       </p>
     </div>
   </section>
@@ -747,79 +784,119 @@
 
   <section class="section" id="awards">
     <h2 class="section-title">Honors and Awards</h2>
-    <div class="awards-grid">
-      <div class="award-card">
-        <div class="award-icon">🏆</div>
-        <div class="award-name">National Scholarship for Graduate Students, Ministry of Education of China</div>
-        <div class="award-date">Dec. 2025</div>
-        <span class="award-tag tag-academic">Academic</span>
+
+    <div class="awards-wrapper">
+    <div class="awards-category">
+      <h3 class="awards-cat-title">
+        <span class="cat-icon">🎓</span> Academic
+      </h3>
+      <div class="awards-timeline">
+        <div class="awards-tl-item">
+          <div class="awards-tl-dot"></div>
+          <div class="awards-tl-date">Dec. 2025</div>
+          <div class="awards-tl-content">
+            <div class="awards-tl-name">National Scholarship for Graduate Students</div>
+            <div class="awards-tl-org">Ministry of Education of China</div>
+          </div>
+        </div>
+        <div class="awards-tl-item">
+          <div class="awards-tl-dot"></div>
+          <div class="awards-tl-date">Sep. 2025</div>
+          <div class="awards-tl-content">
+            <div class="awards-tl-name">1st Prize Graduate Scholarship</div>
+            <div class="awards-tl-org">School of Physics and Astronomy, SYSU</div>
+          </div>
+        </div>
+        <div class="awards-tl-item">
+          <div class="awards-tl-dot"></div>
+          <div class="awards-tl-date">Jun. 2025</div>
+          <div class="awards-tl-content">
+            <div class="awards-tl-name">1st Prize, 2nd Graduate Academic Forum of School of Science</div>
+            <div class="awards-tl-org">Sun Yat-sen University</div>
+          </div>
+        </div>
+        <div class="awards-tl-item">
+          <div class="awards-tl-dot"></div>
+          <div class="awards-tl-date">May 2025</div>
+          <div class="awards-tl-content">
+            <div class="awards-tl-name">1st Prize, 2nd Graduate Academic Forum</div>
+            <div class="awards-tl-org">School of Physics and Astronomy, SYSU</div>
+          </div>
+        </div>
+        <div class="awards-tl-item">
+          <div class="awards-tl-dot"></div>
+          <div class="awards-tl-date">Mar. 2025</div>
+          <div class="awards-tl-content">
+            <div class="awards-tl-name">"Cai Xia Zhan Chi" Scholarship</div>
+            <div class="awards-tl-org">School of Physics and Astronomy, SYSU</div>
+          </div>
+        </div>
+        <div class="awards-tl-item">
+          <div class="awards-tl-dot"></div>
+          <div class="awards-tl-date">Sep. 2024</div>
+          <div class="awards-tl-content">
+            <div class="awards-tl-name">2nd Prize Graduate Scholarship</div>
+            <div class="awards-tl-org">School of Physics and Astronomy, SYSU</div>
+          </div>
+        </div>
       </div>
-      <div class="award-card">
-        <div class="award-icon">🎓</div>
-        <div class="award-name">"Cai Xia Zhan Chi" Scholarship, School of Physics and Astronomy, SYSU</div>
-        <div class="award-date">Mar. 2025</div>
-        <span class="award-tag tag-academic">Academic</span>
+    </div>
+
+    <div class="awards-category">
+      <h3 class="awards-cat-title">
+        <span class="cat-icon">🏅</span> Sports
+      </h3>
+      <div class="awards-timeline">
+        <div class="awards-tl-item">
+          <div class="awards-tl-dot sports-dot"></div>
+          <div class="awards-tl-date">Apr. 2026</div>
+          <div class="awards-tl-content">
+            <div class="awards-tl-name">1st Place, Men's 200m Dragon Boat Race</div>
+            <div class="awards-tl-org">18th Dragon Boat Festival of SYSU</div>
+          </div>
+        </div>
+        <div class="awards-tl-item">
+          <div class="awards-tl-dot sports-dot"></div>
+          <div class="awards-tl-date">Jun. 2026</div>
+          <div class="awards-tl-content">
+            <div class="awards-tl-name">4th Place, Men's 700m Dragon Boat Race</div>
+            <div class="awards-tl-org">GBA (Zhongshan) Dragon Boat Invitational</div>
+          </div>
+        </div>
+        <div class="awards-tl-item">
+          <div class="awards-tl-dot sports-dot"></div>
+          <div class="awards-tl-date">Nov. 2025</div>
+          <div class="awards-tl-content">
+            <div class="awards-tl-name">1st Place, 2000m Dragon Boat Race</div>
+            <div class="awards-tl-org">Zhuhai Campus, SYSU</div>
+          </div>
+        </div>
+        <div class="awards-tl-item">
+          <div class="awards-tl-dot sports-dot"></div>
+          <div class="awards-tl-date">Nov. 2025</div>
+          <div class="awards-tl-content">
+            <div class="awards-tl-name">2nd Place, Men's 200m Dragon Boat Race</div>
+            <div class="awards-tl-org">Zhuhai Campus, SYSU</div>
+          </div>
+        </div>
+        <div class="awards-tl-item">
+          <div class="awards-tl-dot sports-dot"></div>
+          <div class="awards-tl-date">Nov. 2025</div>
+          <div class="awards-tl-content">
+            <div class="awards-tl-name">3rd Place, Mixed 200m Dragon Boat Race</div>
+            <div class="awards-tl-org">Zhuhai Campus, SYSU</div>
+          </div>
+        </div>
+        <div class="awards-tl-item">
+          <div class="awards-tl-dot sports-dot"></div>
+          <div class="awards-tl-date">Jun. 2025</div>
+          <div class="awards-tl-content">
+            <div class="awards-tl-name">2nd Place, 3rd "Wutian Cup" Football Tournament</div>
+            <div class="awards-tl-org">School of Physics and Astronomy, SYSU</div>
+          </div>
+        </div>
       </div>
-      <div class="award-card">
-        <div class="award-icon">📜</div>
-        <div class="award-name">1st Prize Graduate Scholarship, School of Physics and Astronomy, SYSU</div>
-        <div class="award-date">Sep. 2025</div>
-        <span class="award-tag tag-academic">Academic</span>
-      </div>
-      <div class="award-card">
-        <div class="award-icon">📜</div>
-        <div class="award-name">2nd Prize Graduate Scholarship, School of Physics and Astronomy, SYSU</div>
-        <div class="award-date">Sep. 2024</div>
-        <span class="award-tag tag-academic">Academic</span>
-      </div>
-      <div class="award-card">
-        <div class="award-icon">🥇</div>
-        <div class="award-name">1st Prize, 2nd Graduate Academic Forum, School of Physics and Astronomy, SYSU</div>
-        <div class="award-date">May 2025</div>
-        <span class="award-tag tag-academic">Academic</span>
-      </div>
-      <div class="award-card">
-        <div class="award-icon">🥇</div>
-        <div class="award-name">1st Prize, 2nd Graduate Academic Forum of School of Science, SYSU</div>
-        <div class="award-date">Jun. 2025</div>
-        <span class="award-tag tag-academic">Academic</span>
-      </div>
-      <div class="award-card">
-        <div class="award-icon">🚣</div>
-        <div class="award-name">1st Place, Men's 200m Dragon Boat Race, 18th Dragon Boat Festival of SYSU</div>
-        <div class="award-date">Apr. 2026</div>
-        <span class="award-tag tag-sports">Sports</span>
-      </div>
-      <div class="award-card">
-        <div class="award-icon">🚣</div>
-        <div class="award-name">4th Place, Men's 700m Dragon Boat Race, Guangdong–Hong Kong–Macao Greater Bay Area (Zhongshan) Dragon Boat Invitational</div>
-        <div class="award-date">Jun. 2026</div>
-        <span class="award-tag tag-sports">Sports</span>
-      </div>
-      <div class="award-card">
-        <div class="award-icon">🚣</div>
-        <div class="award-name">1st Place, 2000m Dragon Boat Race, Zhuhai Campus, SYSU</div>
-        <div class="award-date">Nov. 2025</div>
-        <span class="award-tag tag-sports">Sports</span>
-      </div>
-      <div class="award-card">
-        <div class="award-icon">🥈</div>
-        <div class="award-name">2nd Place, Men's 200m Dragon Boat Race, Zhuhai Campus, SYSU</div>
-        <div class="award-date">Nov. 2025</div>
-        <span class="award-tag tag-sports">Sports</span>
-      </div>
-      <div class="award-card">
-        <div class="award-icon">🥉</div>
-        <div class="award-name">3rd Place, Mixed 200m Dragon Boat Race, Zhuhai Campus, SYSU</div>
-        <div class="award-date">Nov. 2025</div>
-        <span class="award-tag tag-sports">Sports</span>
-      </div>
-      <div class="award-card">
-        <div class="award-icon">🥈</div>
-        <div class="award-name">2nd Place, 3rd "Wutian Cup" Football Tournament, School of Physics and Astronomy, SYSU</div>
-        <div class="award-date">Jun. 2025</div>
-        <span class="award-tag tag-sports">Sports</span>
-      </div>
+    </div>
     </div>
   </section>
 
@@ -836,6 +913,17 @@
           <p>Host: Chinese Astronomical Society · Zhuhai, China</p>
         </div>
         <span class="conf-type">Contributed Talk</span>
+      </div>
+      <div class="conf-item">
+        <div class="conf-date-box">
+          <div class="conf-month">Aug.</div>
+          <div class="conf-year">2025</div>
+        </div>
+        <div class="conf-info">
+          <h4>3rd Astronomy Big Data Workshop: X-ray Astronomy in the Era of the Einstein Probe Satellite</h4>
+          <p>Host: Einstein Probe Collaboration · Kunming, China</p>
+        </div>
+        <span class="conf-type">Participant</span>
       </div>
       <div class="conf-item">
         <div class="conf-date-box">
@@ -869,7 +957,18 @@
           <p>Host: School of Physics and Astronomy, SYSU · Zhuhai, China</p>
         </div>
         <span class="conf-type">Contributed Talk</span>
-      </div>  
+      </div>
+      <div class="conf-item">
+        <div class="conf-date-box">
+          <div class="conf-month">May</div>
+          <div class="conf-year">2024</div>
+        </div>
+        <div class="conf-info">
+          <h4>Einstein Probe (EP) Science Workshop 2024</h4>
+          <p>Host: Einstein Probe Collaboration · Suzhou, China</p>
+        </div>
+        <span class="conf-type">Participant</span>
+      </div>
       <div class="conf-item">
         <div class="conf-date-box">
           <div class="conf-month">May</div>
@@ -891,6 +990,17 @@
           <p>Host: Nanjing University · Suzhou, China</p>
         </div>
         <span class="conf-type">Contributed Talk</span>
+      </div>
+      <div class="conf-item">
+        <div class="conf-date-box">
+          <div class="conf-month">Jan.</div>
+          <div class="conf-year">2024</div>
+        </div>
+        <div class="conf-info">
+          <h4>Insight-HXMT for Six Years and Beyond Conference</h4>
+          <p>Host: Insight-HXMT Collaboration · Zhuhai, China</p>
+        </div>
+        <span class="conf-type">Participant</span>
       </div>
     </div>
   </section>
