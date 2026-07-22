@@ -9,10 +9,20 @@ Personal academic homepage of **JUN-PING CHEN** (陈军平), Ph.D. Candidate in 
 - **Affiliation**: School of Physics and Astronomy, Sun Yat-sen University
 - **Expected Graduation**: 2027
 - **Research Interests**: Gamma-Ray Bursts (GRBs), Tidal Disruption Events (TDEs), Compact Binaries
-- **Email**: chenjp79@mail2.sysu.edu.cn / chenjp3@icloud.com
-- **Phone**: +86-134-3192-0737
+- **Academic Profiles**:
+  - [ORCID](https://orcid.org/0009-0001-7397-1727)
+  - [NASA ADS](https://ui.adsabs.harvard.edu/public-libraries/_Zy84FO7ReatnvwxYvLtVA)
+  - [Google Scholar](https://scholar.google.com.hk/citations?user=CGyszpIAAAAJ&hl=zh-CN)
+- **Contact**:
+  - `chenjp79@mail2.sysu.edu.cn` (Institutional)
+  - `chenjp3@icloud.com` (Personal / Permanent)
+
+## Education
+
+- **Ph.D. in Astrophysics**, Sun Yat-sen University (2023 - Present)
 
 ## Mission Affiliations
+
 - **Einstein Probe (EP)** - Observation Duty Assistant (since Oct 2025)
 - **SVOM** - Affiliated Scientist (since Nov 2024)
 
