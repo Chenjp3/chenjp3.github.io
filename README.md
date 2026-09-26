@@ -11,7 +11,7 @@ Personal academic homepage of **JUN-PING CHEN** (陈军平), Ph.D. Candidate in 
 - **Research Interests**: Gamma-Ray Bursts (GRBs), Tidal Disruption Events (TDEs), Compact Binaries
 - **Academic Profiles**:
   - [ORCID](https://orcid.org/0009-0001-7397-1727)
-  - [NASA ADS](https://ui.adsabs.harvard.edu/public-libraries/_Zy84FO7ReatnvwxYvLtVA)
+  - [SciX](https://scixplorer.org/user/libraries/_Zy84FO7ReatnvwxYvLtVA)
   - [Google Scholar](https://scholar.google.com.hk/citations?user=CGyszpIAAAAJ&hl=zh-CN)
 - **Contact**:
   - `chenjp79@mail2.sysu.edu.cn` (Institutional)
